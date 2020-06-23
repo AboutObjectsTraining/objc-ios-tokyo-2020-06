@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #include "ANSICBasics.h"
 #include "Pointers.h"
 
