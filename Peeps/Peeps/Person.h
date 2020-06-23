@@ -3,10 +3,25 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Person : NSObject {
+@class Dog;
+
+@protocol Vocalizing <NSObject>
+
+- (void)growl;
+
+@optional
+
+- (void)whine;
+
+@end
+
+
+@interface Person : NSObject <Vocalizing> {
     NSString *_firstName;
     NSString *_lastName;
     NSInteger _age;
+    
+    Dog *_dog;
 }
 
 - (instancetype)initWithFirstName:(NSString *)aFirstName
@@ -30,5 +45,8 @@
 
 - (NSInteger)age;
 - (void)setAge:(NSInteger)newValue;
+
+- (Dog *)dog;
+- (void)setDog:(Dog *)newValue;
 
 @end

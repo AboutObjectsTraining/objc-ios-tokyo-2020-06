@@ -84,6 +84,11 @@
         [currPerson display];
     }
     
+//    [people makeObjectsPerformSelector:@selector(setLastName:) withObject:@"Jones"];
+//    NSLog(@"%@", people);
+    
+    
+    
     NSSortDescriptor *sortDesc = [NSSortDescriptor
                                   sortDescriptorWithKey:@"rating"
                                   ascending:NO];

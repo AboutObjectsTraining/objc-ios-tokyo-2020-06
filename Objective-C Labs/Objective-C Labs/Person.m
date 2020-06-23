@@ -64,6 +64,8 @@
 
 const NSUInteger MaxRating = 5;
 
+NSString * const Stars = @"*****";
+
 - (NSUInteger)rating {
     return _rating;
 }

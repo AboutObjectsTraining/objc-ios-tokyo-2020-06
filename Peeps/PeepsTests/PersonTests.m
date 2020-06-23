@@ -3,6 +3,7 @@
 
 #import <XCTest/XCTest.h>
 #import "Person.h"
+#import "Dog.h"
 
 @interface PersonTests : XCTestCase
 
@@ -35,6 +36,21 @@
 - (void)testFactoryMethod {
     Person *fred = [Person personWithFirstName:@"Fred" lastName:@"Smith" age:42];
     NSLog(@"%@", fred);
+}
+
+- (void)testProtocolImplementation {
+    Person *fred = [Person personWithFirstName:@"Fred" lastName:@"Smith" age:42];
+    Dog *rover = [[Dog alloc] init];
+    [fred setDog:rover];
+    NSLog(@"%@", fred);
+    
+    printf("%s\n", __func__);
+    
+    [fred growl];
+    
+    if ([fred respondsToSelector:@selector(whine)]) {
+        [fred whine];
+    }
 }
 
 @end

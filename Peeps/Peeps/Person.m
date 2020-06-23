@@ -2,6 +2,7 @@
 // See LICENSE.txt for this project's licensing information.
 
 #import "Person.h"
+#import "Dog.h"
 
 NSString *TodaysWeather(void) {
     return @"Sunny";
@@ -63,6 +64,31 @@ NSString *TodaysWeather(void) {
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"%@, age is %@", [self fullName], @([self age])];
+}
+
+- (void)growl {
+    printf("Grrr!\n");
+}
+
+- (Dog *)dog {
+    return _dog;
+}
+- (void)setDog:(Dog *)newValue {
+    _dog = [newValue copy];
+}
+
+- (BOOL)respondsToSelector:(SEL)aSelector {
+    if ([super respondsToSelector:aSelector]) {
+        return YES;
+    }
+    return [[self dog] respondsToSelector:aSelector];
+}
+
+- (id)forwardingTargetForSelector:(SEL)aSelector {
+    if ([[self dog] respondsToSelector:aSelector]) {
+        return [self dog];
+    }
+    return nil;
 }
 
 @end
