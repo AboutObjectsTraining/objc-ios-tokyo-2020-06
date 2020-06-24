@@ -3,6 +3,13 @@
 
 #import "CLNCoolViewCell.h"
 
+const UIEdgeInsets CLNTextInsets = {
+    .top = 7,
+    .bottom = 8,
+    .left = 12,
+    .right = 12,
+};
+
 @interface CLNCoolViewCell ()
 @property (assign, nonatomic) BOOL highlighted;
 @property (class, readonly, nonatomic) NSDictionary *textAttributes;
@@ -21,11 +28,52 @@
     self.alpha = highlighted ? 0.5 : 1.0;
 }
 
+- (void)setText:(NSString *)text {
+    _text = [text copy];
+    [self sizeToFit];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self == nil) return nil;
+    
+    [self configureLayer];
+    [self configureGestureRecognizers];
+    
+    return self;
+}
+
+// FIXME: Handle initWithCoder:
+
+- (void)configureLayer {
+    self.layer.borderWidth = 3;
+    self.layer.borderColor = UIColor.whiteColor.CGColor;
+    self.layer.cornerRadius = 10;
+    self.layer.masksToBounds = YES;
+}
+
+- (void)configureGestureRecognizers {
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bounce)];
+    recognizer.numberOfTapsRequired = 2;
+    [self addGestureRecognizer:recognizer];
+}
+
+- (void)bounce {
+    NSLog(@"In %s", __func__);
+}
+
 // MARK: - Drawing and resizing
 
+- (CGSize)sizeThatFits:(CGSize)size {
+    CGSize newSize = [self.text sizeWithAttributes:self.class.textAttributes];
+    newSize.width += CLNTextInsets.left + CLNTextInsets.right;
+    newSize.height += CLNTextInsets.top + CLNTextInsets.bottom;
+    return newSize;
+}
+
 - (void)drawRect:(CGRect)rect {
-    // TODO: Adjust the origin
-    [self.text drawAtPoint:CGPointZero withAttributes:self.class.textAttributes];
+    CGPoint origin = CGPointMake(CLNTextInsets.left, CLNTextInsets.top);
+    [self.text drawAtPoint:origin withAttributes:self.class.textAttributes];
 }
 
 // MARK: - UIResponder methods
