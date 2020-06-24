@@ -5,5 +5,6 @@
 
 @interface CLNCoolViewCell : UIView
 
+@property (copy, nonatomic) NSString *text;
 
 @end

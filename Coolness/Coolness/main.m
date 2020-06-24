@@ -5,10 +5,10 @@
 #import "CLNAppDelegate.h"
 
 int main(int argc, char * argv[]) {
-    NSString * appDelegateClassName;
+    NSString *appDelegateClassName;
     @autoreleasepool {
         // Setup code that might create autoreleased objects goes here.
-        appDelegateClassName = NSStringFromClass([CLNAppDelegate class]);
+        appDelegateClassName = NSStringFromClass(CLNAppDelegate.class);
     }
     return UIApplicationMain(argc, argv, nil, appDelegateClassName);
 }
