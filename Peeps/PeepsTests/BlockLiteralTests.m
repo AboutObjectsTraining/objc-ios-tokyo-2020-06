@@ -4,7 +4,7 @@
 #import <XCTest/XCTest.h>
 
 @interface BlockLiteralTests : XCTestCase
-
+@property (copy, nonatomic) NSString *text;
 @end
 
 
@@ -27,6 +27,10 @@ void saySomethingBlockishNTimes(int count, void(^thingToSay)(void)) {
 }
 
 @implementation BlockLiteralTests
+
+- (void)setUp {
+    self.text = @"The weather is great!";
+}
 
 - (void)testFunctionPointer {
     void (*myPtr)(void) = NULL;
@@ -51,6 +55,21 @@ void saySomethingBlockishNTimes(int count, void(^thingToSay)(void)) {
     
     saySomethingBlockishNTimes(3, ^{
         printf("Hello again!\n");
+    });
+}
+
+- (void)testCapturingState {
+    NSString *message = @"The weather is sunny!";
+    
+    saySomethingBlockishNTimes(2, ^{
+        printf("Hello! %s\n", message.UTF8String);
+    });
+}
+
+- (void)testCapturingSelf {
+    typeof(self) __weak weakSelf = self;
+    saySomethingBlockishNTimes(2, ^{
+        printf("Hello! %s\n", weakSelf.text.UTF8String);
     });
 }
 

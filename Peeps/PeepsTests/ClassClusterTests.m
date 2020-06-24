@@ -21,14 +21,14 @@
     [bar description];
 }
 
-- (void)testArrays {
-    id foo = nil;
-    NSArray *a = [[NSArray alloc] initWithArray:@[@1]];
-    NSArray *b = [NSArray arrayWithObjects:@1, foo, @2, nil];
-    
-    NSArray *c = @[@1, @"foo", [[Person alloc] init]];
-}
-
+//- (void)testArrays {
+//    id foo = nil;
+//    NSArray *a = [[NSArray alloc] initWithArray:@[@1]];
+//    NSArray *b = [NSArray arrayWithObjects:@1, foo, @2, nil];
+//    
+//    NSArray *c = @[@1, @"foo", [[Person alloc] init]];
+//}
+//
 //- (void)testStringClassCluster {
 //    NSString *s1 = [NSString alloc];
 //    NSString *s2 = [NSString alloc];

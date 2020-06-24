@@ -58,8 +58,28 @@ const UIEdgeInsets CLNTextInsets = {
     [self addGestureRecognizer:recognizer];
 }
 
+
+// MARK: - Animation
+
 - (void)bounce {
     NSLog(@"In %s", __func__);
+    [self animateBounceWithDuration:1 size:CGSizeMake(120, 240)];
+}
+
+- (void)configureAnimationWithSize:(const CGSize)size {
+    [UIView setAnimationRepeatAutoreverses:YES];
+    [UIView setAnimationRepeatCount:3];
+    CGAffineTransform translation = CGAffineTransformMakeTranslation(size.width, size.height);
+    self.transform = CGAffineTransformRotate(translation, M_PI_2);
+}
+
+- (void)animateBounceWithDuration:(NSTimeInterval)duration size:(CGSize)size {
+    typeof(self) __weak weakSelf = self;
+    [UIView animateWithDuration:duration
+                     animations:^{ [weakSelf configureAnimationWithSize:size]; }
+                     completion:^(BOOL finished) {
+        weakSelf.transform = CGAffineTransformIdentity;
+    }];
 }
 
 // MARK: - Drawing and resizing
