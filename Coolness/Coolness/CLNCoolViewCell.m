@@ -17,10 +17,14 @@ const UIEdgeInsets CLNTextInsets = {
 
 @implementation CLNCoolViewCell
 
-// TODO: Cache the instance
 + (NSDictionary *)textAttributes {
-    return @{ NSFontAttributeName : [UIFont boldSystemFontOfSize:20],
-              NSForegroundColorAttributeName : UIColor.whiteColor  };
+    static NSDictionary *textAttributes;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        textAttributes =  @{ NSFontAttributeName : [UIFont boldSystemFontOfSize:20],
+                             NSForegroundColorAttributeName : UIColor.whiteColor  };
+    });
+    return textAttributes;
 }
 
 - (void)setHighlighted:(BOOL)highlighted {
@@ -66,6 +70,9 @@ const UIEdgeInsets CLNTextInsets = {
     [self animateBounceWithDuration:1 size:CGSizeMake(120, 240)];
 }
 
+
+/// Configures a bounce animation effect.
+/// @param size The distance covered by the translated view coordinates.
 - (void)configureAnimationWithSize:(const CGSize)size {
     [UIView setAnimationRepeatAutoreverses:YES];
     [UIView setAnimationRepeatCount:3];
