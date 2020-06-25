@@ -5,6 +5,6 @@
 
 @interface CLNCoolViewCell : UIView
 
-@property (copy, nonatomic) NSString *text;
+@property (copy, nonatomic) IBInspectable NSString *text;
 
 @end
