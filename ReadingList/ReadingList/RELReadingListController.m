@@ -30,8 +30,9 @@
 // MARK: - Unwind segues
 
 - (IBAction)done:(UIStoryboardSegue *)unwindSegue {
-    // TODO: Sync UI and save
     NSLog(@"In %s", __func__);
+    [self.tableView reloadData];
+    [self.storeController saveReadingList:self.readingList];
 }
 
 - (IBAction)cancel:(UIStoryboardSegue *)unwindSegue {

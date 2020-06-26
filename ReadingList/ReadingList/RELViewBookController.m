@@ -2,6 +2,7 @@
 // See LICENSE.txt for this project's licensing information.
 
 #import "RELViewBookController.h"
+#import "RELEditBookController.h"
 #import <ReadingListModel/ReadingListModel.h>
 
 @interface RELViewBookController ()
@@ -26,6 +27,12 @@
 
 - (IBAction)cancel:(UIStoryboardSegue *)unwindSegue {
     NSLog(@"In %s", __func__);
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    UINavigationController *navController = segue.destinationViewController;
+    RELEditBookController *controller = navController.childViewControllers.firstObject;
+    controller.book = self.book;
 }
 
 @end

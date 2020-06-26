@@ -214,7 +214,7 @@
         <!--Edit Book-->
         <scene sceneID="tNW-LV-idG">
             <objects>
-                <tableViewController id="HIA-Yd-Z18" sceneMemberID="viewController">
+                <tableViewController id="HIA-Yd-Z18" customClass="RELEditBookController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="hlw-bi-kx5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -374,10 +374,16 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="fjt-J7-NOz">
                             <connections>
-                                <segue destination="jz9-3Q-H5Q" kind="unwind" unwindAction="done:" id="LaQ-5x-GGj"/>
+                                <segue destination="jz9-3Q-H5Q" kind="unwind" identifier="Done" unwindAction="done:" id="LaQ-5x-GGj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="firstNameField" destination="ots-TZ-vp8" id="wMo-h9-t2a"/>
+                        <outlet property="lastNameField" destination="rg0-NM-8xe" id="cgJ-aV-d2t"/>
+                        <outlet property="titleField" destination="GZb-Qt-JT8" id="4me-L8-ofs"/>
+                        <outlet property="yearField" destination="QRh-hT-RpX" id="sYh-PV-HGD"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jQ0-8e-saO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="jz9-3Q-H5Q" userLabel="Exit" sceneMemberID="exit"/>

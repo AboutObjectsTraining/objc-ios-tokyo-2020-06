@@ -30,6 +30,7 @@
 		B434205124A584BB00476F9E /* ReadingList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B434204324A584BB00476F9E /* ReadingList.plist */; };
 		B434205224A584BB00476F9E /* RLMReadingList.h in Headers */ = {isa = PBXBuildFile; fileRef = B434204424A584BB00476F9E /* RLMReadingList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B434205324A584BB00476F9E /* RLMStoreController.h in Headers */ = {isa = PBXBuildFile; fileRef = B434204524A584BB00476F9E /* RLMStoreController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B434205624A5995500476F9E /* RELEditBookController.m in Sources */ = {isa = PBXBuildFile; fileRef = B434205524A5995500476F9E /* RELEditBookController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,8 @@
 		B434204324A584BB00476F9E /* ReadingList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = ReadingList.plist; sourceTree = "<group>"; };
 		B434204424A584BB00476F9E /* RLMReadingList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLMReadingList.h; sourceTree = "<group>"; };
 		B434204524A584BB00476F9E /* RLMStoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLMStoreController.h; sourceTree = "<group>"; };
+		B434205424A5995500476F9E /* RELEditBookController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RELEditBookController.h; sourceTree = "<group>"; };
+		B434205524A5995500476F9E /* RELEditBookController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RELEditBookController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,8 @@
 				B434200824A47D5D00476F9E /* RELAppDelegate.m */,
 				B434202024A4993E00476F9E /* RELReadingListController.h */,
 				B434202124A4993E00476F9E /* RELReadingListController.m */,
+				B434205424A5995500476F9E /* RELEditBookController.h */,
+				B434205524A5995500476F9E /* RELEditBookController.m */,
 				B434202324A49B0F00476F9E /* RELViewBookController.h */,
 				B434202424A49B0F00476F9E /* RELViewBookController.m */,
 				B434201024A47D5D00476F9E /* Main.storyboard */,
@@ -287,6 +292,7 @@
 				B434202224A4993E00476F9E /* RELReadingListController.m in Sources */,
 				B434201A24A47D5E00476F9E /* main.m in Sources */,
 				B434202524A49B0F00476F9E /* RELViewBookController.m in Sources */,
+				B434205624A5995500476F9E /* RELEditBookController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
