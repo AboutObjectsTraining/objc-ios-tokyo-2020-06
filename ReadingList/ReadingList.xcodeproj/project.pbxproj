@@ -34,6 +34,9 @@
 		B434205924A5B47A00476F9E /* EditBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B434205724A5B47A00476F9E /* EditBook.storyboard */; };
 		B434205C24A5B7CB00476F9E /* RELAddBookController.m in Sources */ = {isa = PBXBuildFile; fileRef = B434205B24A5B7CB00476F9E /* RELAddBookController.m */; };
 		B4B646C324A5BCCE001E977A /* UIStoryboardSegue+RELAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B646C224A5BCCE001E977A /* UIStoryboardSegue+RELAdditions.m */; };
+		B4B646C624A5C59C001E977A /* NSIndexPath+RELAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B646C524A5C59C001E977A /* NSIndexPath+RELAdditions.m */; };
+		B4B646C924A5CDDA001E977A /* UIImageView+RELAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B646C824A5CDDA001E977A /* UIImageView+RELAdditions.m */; };
+		B4B646CC24A5D075001E977A /* UIImage+RELAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B646CB24A5D075001E977A /* UIImage+RELAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +99,12 @@
 		B434205B24A5B7CB00476F9E /* RELAddBookController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RELAddBookController.m; sourceTree = "<group>"; };
 		B4B646C124A5BCCE001E977A /* UIStoryboardSegue+RELAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIStoryboardSegue+RELAdditions.h"; sourceTree = "<group>"; };
 		B4B646C224A5BCCE001E977A /* UIStoryboardSegue+RELAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboardSegue+RELAdditions.m"; sourceTree = "<group>"; };
+		B4B646C424A5C59C001E977A /* NSIndexPath+RELAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+RELAdditions.h"; sourceTree = "<group>"; };
+		B4B646C524A5C59C001E977A /* NSIndexPath+RELAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+RELAdditions.m"; sourceTree = "<group>"; };
+		B4B646C724A5CDDA001E977A /* UIImageView+RELAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+RELAdditions.h"; sourceTree = "<group>"; };
+		B4B646C824A5CDDA001E977A /* UIImageView+RELAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+RELAdditions.m"; sourceTree = "<group>"; };
+		B4B646CA24A5D075001E977A /* UIImage+RELAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+RELAdditions.h"; sourceTree = "<group>"; };
+		B4B646CB24A5D075001E977A /* UIImage+RELAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RELAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +159,12 @@
 				B434202424A49B0F00476F9E /* RELViewBookController.m */,
 				B4B646C124A5BCCE001E977A /* UIStoryboardSegue+RELAdditions.h */,
 				B4B646C224A5BCCE001E977A /* UIStoryboardSegue+RELAdditions.m */,
+				B4B646C424A5C59C001E977A /* NSIndexPath+RELAdditions.h */,
+				B4B646C524A5C59C001E977A /* NSIndexPath+RELAdditions.m */,
+				B4B646C724A5CDDA001E977A /* UIImageView+RELAdditions.h */,
+				B4B646C824A5CDDA001E977A /* UIImageView+RELAdditions.m */,
+				B4B646CA24A5D075001E977A /* UIImage+RELAdditions.h */,
+				B4B646CB24A5D075001E977A /* UIImage+RELAdditions.m */,
 				B434205724A5B47A00476F9E /* EditBook.storyboard */,
 				B434201024A47D5D00476F9E /* Main.storyboard */,
 				B434201324A47D5E00476F9E /* Assets.xcassets */,
@@ -302,7 +317,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4B646C924A5CDDA001E977A /* UIImageView+RELAdditions.m in Sources */,
+				B4B646C624A5C59C001E977A /* NSIndexPath+RELAdditions.m in Sources */,
 				B434205C24A5B7CB00476F9E /* RELAddBookController.m in Sources */,
+				B4B646CC24A5D075001E977A /* UIImage+RELAdditions.m in Sources */,
 				B4B646C324A5BCCE001E977A /* UIStoryboardSegue+RELAdditions.m in Sources */,
 				B434200924A47D5D00476F9E /* RELAppDelegate.m in Sources */,
 				B434202224A4993E00476F9E /* RELReadingListController.m in Sources */,

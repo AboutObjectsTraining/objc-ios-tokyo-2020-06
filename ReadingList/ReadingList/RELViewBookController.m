@@ -5,6 +5,7 @@
 #import "RELEditBookController.h"
 #import <ReadingListModel/ReadingListModel.h>
 #import "UIStoryboardSegue+RELAdditions.h"
+#import "UIImage+RELAdditions.h"
 
 @interface RELViewBookController ()
 
@@ -12,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *yearLabel;
 @property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lastNameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *authorImageView;
 
 @end
 
@@ -24,6 +26,8 @@
     self.yearLabel.text = self.book.year;
     self.firstNameLabel.text = self.book.author.firstName;
     self.lastNameLabel.text = self.book.author.lastName;
+    
+    self.authorImageView.image = [UIImage rel_imageNamed:self.book.author.lastName];
 }
 
 - (IBAction)cancel:(UIStoryboardSegue *)unwindSegue {

@@ -13,9 +13,20 @@
 
 @implementation RELAddBookController
 
+- (RLMBook *)book {
+    return [RLMBook modelObjectWithDictionary:@{
+        RLMBookKeys.title : self.titleField.text,
+        RLMBookKeys.year : self.yearField.text,
+        RLMBookKeys.author : @{
+                RLMAuthorKeys.firstName : self.firstNameField.text,
+                RLMAuthorKeys.lastName : self.lastNameField.text
+        }
+    }];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"Done"]) {
-        // TODO: ???
+        self.addBook([self book]);
     }
 }
 

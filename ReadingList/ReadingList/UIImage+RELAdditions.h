@@ -3,11 +3,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class RLMBook;
+@interface UIImage (RELAdditions)
 
-@interface RELAddBookController : UITableViewController
-
-@property (copy, nonatomic) void (^addBook)(RLMBook *book);
++ (UIImage *)rel_imageNamed:(NSString *)name;
 
 @end
-

@@ -3,8 +3,10 @@
 
 #import "RELReadingListController.h"
 #import "RELViewBookController.h"
+#import "RELAddBookController.h"
 #import <ReadingListModel/ReadingListModel.h>
 #import "UIStoryboardSegue+RELAdditions.h"
+#import "NSIndexPath+RELAdditions.h"
 
 @interface RELReadingListController ()
 @property (strong, nonatomic) IBOutlet RLMStoreController *storeController;
@@ -12,6 +14,11 @@
 @end
 
 @implementation RELReadingListController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
 
 - (RLMReadingList *)readingList {
     if (_readingList == nil) {
@@ -21,10 +28,19 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    RELViewBookController *controller = segue.rel_destinationViewController;
-    NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
-    RLMBook *book = [self.readingList bookAtIndexPath:indexPath];
-    controller.book = book;
+    if ([segue.identifier isEqualToString:@"View Book"]) {
+        RELViewBookController *controller = segue.rel_destinationViewController;
+        NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+        RLMBook *book = [self.readingList bookAtIndexPath:indexPath];
+        controller.book = book;
+    } else {
+        RELAddBookController *controller = segue.rel_destinationViewController;
+        typeof(self) __weak weakSelf = self;
+        controller.addBook = ^(RLMBook *book) {
+            [weakSelf.readingList insertBook:book atIndexPath:NSIndexPath.rel_zero];
+            [weakSelf.tableView scrollToRowAtIndexPath:NSIndexPath.rel_zero atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        };
+    }
 }
 
 
@@ -54,6 +70,17 @@
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", book.year, book.author.fullName];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.readingList removeBookAtIndexPath:indexPath];
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.storeController saveReadingList:self.readingList];
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    [self.readingList moveBookAtIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
+    [self.storeController saveReadingList:self.readingList];
 }
 
 @end

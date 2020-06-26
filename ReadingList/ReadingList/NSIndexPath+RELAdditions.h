@@ -3,11 +3,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class RLMBook;
+@interface NSIndexPath (RELAdditions)
 
-@interface RELAddBookController : UITableViewController
-
-@property (copy, nonatomic) void (^addBook)(RLMBook *book);
+@property (class, readonly, nonatomic) NSIndexPath *rel_zero;
 
 @end
-
