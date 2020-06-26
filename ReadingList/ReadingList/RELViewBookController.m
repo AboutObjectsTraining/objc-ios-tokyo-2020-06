@@ -4,6 +4,7 @@
 #import "RELViewBookController.h"
 #import "RELEditBookController.h"
 #import <ReadingListModel/ReadingListModel.h>
+#import "UIStoryboardSegue+RELAdditions.h"
 
 @interface RELViewBookController ()
 
@@ -30,8 +31,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    UINavigationController *navController = segue.destinationViewController;
-    RELEditBookController *controller = navController.childViewControllers.firstObject;
+    RELEditBookController *controller = segue.rel_destinationViewController;
     controller.book = self.book;
 }
 

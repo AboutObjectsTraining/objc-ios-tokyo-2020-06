@@ -4,6 +4,7 @@
 #import "RELReadingListController.h"
 #import "RELViewBookController.h"
 #import <ReadingListModel/ReadingListModel.h>
+#import "UIStoryboardSegue+RELAdditions.h"
 
 @interface RELReadingListController ()
 @property (strong, nonatomic) IBOutlet RLMStoreController *storeController;
@@ -20,7 +21,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    RELViewBookController *controller = segue.destinationViewController;
+    RELViewBookController *controller = segue.rel_destinationViewController;
     NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
     RLMBook *book = [self.readingList bookAtIndexPath:indexPath];
     controller.book = book;
